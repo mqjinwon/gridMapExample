@@ -1,0 +1,16 @@
+<launch>
+
+
+    <node name="main" pkg="grid_example" type="grid_example" output="screen"></node>
+
+    <!-- Launch the grid map visualizer -->
+    <node pkg="grid_map_visualization" type="grid_map_visualization" name="grid_map_visualization" output="screen">
+        <rosparam command="load" file="$(find grid_example)/config/test.yaml" />
+    </node>
+
+    <!-- Launch rviz with specific configuration -->
+    <node name="rviz_test" pkg="rviz" type="rviz" args="-d $(find grid_example)/rviz/test.rviz">
+    </node>
+
+
+</launch>
